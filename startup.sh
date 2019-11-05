@@ -24,6 +24,7 @@ then
     echo "Populating environment using variables in $CONFIG_PATH ..."
     export $(grep -v '^#' $CONFIG_PATH | xargs)
 elif [ $CONFIG_TYPE == "file" ]
+then
     echo "Writing environment variables to $CONFIG_PATH ..."
     env > $CONFIG_TYPE
 else
