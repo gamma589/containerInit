@@ -19,11 +19,11 @@ else
     while true; do sleep 86400; done
 fi
 
-if [ $CONFIG_TYPE == "env" ]
+if [ x$CONFIG_TYPE = x"env" ]
 then
     echo "Populating environment using variables in $CONFIG_PATH ..."
     export $(grep -v '^#' $CONFIG_PATH | xargs)
-elif [ $CONFIG_TYPE == "file" ]
+elif [ x$CONFIG_TYPE = x"file" ]
 then
     echo "Writing environment variables to $CONFIG_PATH ..."
     env > $CONFIG_TYPE
