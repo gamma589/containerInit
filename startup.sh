@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 ALLOWED_CONFIG_TYPE="env file"
 if [ -z "$CONFIG_TYPE" ]
 then

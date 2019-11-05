@@ -10,7 +10,8 @@ RUN npm install
 ENV PORT 3200
 
 COPY . .
+RUN chmod a+x /app/startup.sh
 
 USER node
 
-ENTRYPOINT ["/bin/bash" "-c" "npm run start:dev --port ${PORT}"]
+ENTRYPOINT ["/app/startup.sh"]
