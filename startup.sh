@@ -26,7 +26,8 @@ then
 elif [ x$CONFIG_TYPE = x"file" ]
 then
     echo "Writing environment variables to $CONFIG_PATH ..."
-    env > $CONFIG_TYPE
+    #ensure that the user in the Dockerfile USER directive has permissions to overwrite the $CONFIG_PATH file
+    env > $CONFIG_PATH
 else
     echo "Container needs no variables or they are handled by some other means"
 fi
