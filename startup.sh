@@ -15,8 +15,12 @@ fi
 if [ -f "$CONFIG_PATH" ]; then
     echo "$CONFIG_PATH exists"
 else
-    echo "CONFIG_PATH is empty or invalid, entering infinite loop to allow debug"
-    while true; do sleep 86400; done
+    if [ x$CONFIG_TYPE = x"none" ]; then
+        echo "CONFIG_PATH is empty but not required"
+    else
+        echo "CONFIG_PATH is empty or invalid, entering infinite loop to allow debug"
+        while true; do sleep 86400; done
+    fi
 fi
 
 if [ x$CONFIG_TYPE = x"env" ]
